@@ -1,0 +1,10 @@
+﻿<div>
+    <ul ng-repeat="tintuc in AllTinTuc">
+        <li>
+            <a ui-sref="tintuc.chitiet({tintucid:tintuc.TinTucId})" style="cursor:pointer">
+                {{tintuc.TinTucId}}.{{tintuc.TieuDe}}
+            </a>
+        </li>
+    </ul>
+    <br />
+</div>

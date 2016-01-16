@@ -1,0 +1,20 @@
+﻿#thong-bao .alert-message,
+.alert-message-sendmail,
+.alert-message-delete,
+.alert-message-create,
+.alert-message-setRoleEmployer, 
+.alert-message-errors,
+.alert-message-approve {
+    position: fixed;
+    z-index: 9999;
+    right: 0;
+    opacity: 0.8;
+    top: 50px;
+    padding-left: 21px;
+    /* padding-right: 100px; */
+    height: 72px;
+}
+
+.margin-top-10px{
+    margin-top:10px;
+}

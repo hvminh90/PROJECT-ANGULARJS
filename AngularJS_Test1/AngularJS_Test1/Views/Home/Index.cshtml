@@ -1,0 +1,135 @@
+﻿
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>SPA</title>
+    <link href="~/Content/style.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    <style type="text/css">
+        .confirmWidth {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .modal-dialog-xoa {
+            top: 40% !important;
+            left: 30% !important;
+            margin: 0 !important;
+        }
+
+        #background-color {
+            background-color: #f1f1f1;
+        }
+    </style>
+    <script>
+        document.write('<base href="' + document.location.pathname + '" />')
+    </script>
+    
+</head>
+<body>
+    <div class="container margin-top-10px" ng-hide="show_error">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand " ui-sref="home"><span class="glyphicon glyphicon-home"></span></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a ui-sref="about" ui-sref-active="active">About <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li><a ui-sref="nhanvien">Quản lý nhân viên</a></li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quản lý tin tức <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a ui-sref="qltheloai">Thể loại</a></li>
+                                <li><a ui-sref="qltintuc">Tin tức</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a ui-sref="tintuc">Tin tức</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+    </div>
+
+    <div class="container mainContent" ui-view="">
+        
+        
+        
+    </div>
+
+    <div>
+        <div class="col-md-12" id="thong-bao">
+            <div class="alert alert-success alert-dismissable alert-message hide">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4>  <i class="icon fa fa-check"></i> Thông báo!</h4>
+                Sửa đổi thành công !!!!
+            </div>
+        </div>
+        <div class="col-md-12" id="thong-bao">
+            <div class="alert alert-success alert-dismissable alert-message-delete hide Xoa">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4>  <i class="icon fa fa-check"></i> Thông báo!</h4>
+                Xóa thành công !!!!
+            </div>
+        </div>
+    </div>
+    @*@Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")*@
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+   
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootbox.min.js"></script>
+
+   
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/myApp")
+
+</body>
+</html>
+
+
+
+
+
+
+
+

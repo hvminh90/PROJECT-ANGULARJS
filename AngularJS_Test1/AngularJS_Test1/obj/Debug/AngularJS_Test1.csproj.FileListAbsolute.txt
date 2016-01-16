@@ -1,0 +1,68 @@
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\AngularJS_Test1.dll.config
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\AngularJS_Test1.dll
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\AngularJS_Test1.pdb
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\Antlr3.Runtime.dll
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\EntityFramework.dll
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\Microsoft.Web.Infrastructure.dll
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\Newtonsoft.Json.dll
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Net.Http.Formatting.dll
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Helpers.dll
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Http.dll
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Http.WebHost.dll
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Mvc.dll
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Optimization.dll
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Razor.dll
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Web.WebPages.Deployment.dll
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Web.WebPages.dll
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Web.WebPages.Razor.dll
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\WebGrease.dll
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\EntityFramework.xml
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\Newtonsoft.Json.xml
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Net.Http.Formatting.xml
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Helpers.xml
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Http.xml
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Http.WebHost.xml
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Mvc.xml
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Optimization.xml
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Razor.xml
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Web.WebPages.xml
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Web.WebPages.Deployment.xml
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\System.Web.WebPages.Razor.xml
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\bin\Antlr3.Runtime.pdb
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\obj\Debug\AngularJS_Test1.csprojResolveAssemblyReference.cache
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\obj\Debug\AngularJS_Test1.dll
+D:\THAM KHAO\AngularJS\AngularJS_Test1\AngularJS_Test1\obj\Debug\AngularJS_Test1.pdb
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\AngularJS_Test1.dll.config
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\AngularJS_Test1.dll
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\AngularJS_Test1.pdb
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\Antlr3.Runtime.dll
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\EntityFramework.dll
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\Microsoft.Web.Infrastructure.dll
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\Newtonsoft.Json.dll
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Net.Http.Formatting.dll
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Helpers.dll
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Http.dll
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Http.WebHost.dll
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Mvc.dll
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Optimization.dll
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Razor.dll
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Web.WebPages.Deployment.dll
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Web.WebPages.dll
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Web.WebPages.Razor.dll
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\WebGrease.dll
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\EntityFramework.xml
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\Newtonsoft.Json.xml
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Net.Http.Formatting.xml
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Helpers.xml
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Http.xml
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Http.WebHost.xml
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Mvc.xml
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Optimization.xml
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Web.Razor.xml
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Web.WebPages.xml
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Web.WebPages.Deployment.xml
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\System.Web.WebPages.Razor.xml
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\bin\Antlr3.Runtime.pdb
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\obj\Debug\AngularJS_Test1.dll
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\obj\Debug\AngularJS_Test1.pdb
+D:\ANGULAR JS\PROJECT ANGULARJS MVC\AngularJS_Test1\AngularJS_Test1\obj\Debug\AngularJS_Test1.csprojResolveAssemblyReference.cache

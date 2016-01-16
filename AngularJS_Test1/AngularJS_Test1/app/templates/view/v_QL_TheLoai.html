@@ -1,0 +1,65 @@
+﻿
+
+<div ng-show="show">
+    <div class="panel panel-default" style="background-color: #f1f1f1">
+        <div class="panel-body">
+            <form name="formAdd" ng-submit="InsUpdTheLoai(TheLoai)" class="form-horizontal">
+                <!-- START THE FORM -->
+                <div class="col-sm-12">
+                    <!-- FIRST COLUMN -->
+                    <div class="form-group">
+                        <label for="inputFirstname" class="col-sm-2 control-label">Tên thể loại</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="tentheloai" placeholder="Tên thể loại" ng-model="TheLoai.TenTheLoai" required tabindex="1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputLastname" class="col-sm-2 control-label">Mô tả</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" rows="3" id="mota" ng-model="TheLoai.MoTa" placeholder="Mô tả" tabindex="2"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-sm-2 control-label">Hoạt động</label>
+                        <div class="col-sm-10">
+                            <input type="checkbox" id="IsActive" ng-model="TheLoai.IsActive"  tabindex="3">
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-sm-12 text-right">
+                            <button type="button" class="btn btn-default btn-sm" ng-click="cancelSave()">Cancel</button>&nbsp;&nbsp;
+                            <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form> <!-- END THE FORM -->
+        </div>
+    </div><!-- END PANEL -->
+</div>
+
+<button ng-hide="show" class="btn btn-default" type="button" style="margin-bottom: 20px;" ng-click="themtheloai()">Add Thể loại</button>
+<div>
+    <div class="panel panel-default">
+        <table class="table table-bordered table-hover" style="width:100%">
+            <tr>
+                <th width="2%">STT</th>
+                <th width="20%">Tên thể loại</th>
+                <th>Mô tả</th>
+                <th width="2%">Hoạt động</th>
+                <th width="15%">Edit/Delete</th>
+            </tr>
+            <tr data-ng-repeat="theloai in TheLoais">
+                <td style="text-align:center"><strong>{{$index + 1 }}</strong></td>
+                <td><strong>{{ theloai.TenTheLoai }}</strong></td>
+                <td>{{ theloai.MoTa }}</td>
+                <td style="text-align:center"><input type="checkbox" ng-checked="theloai.IsActive" disabled /></td>
+                <td>
+                    <button type="button" class="btn" ng-click="editTheLoai(theloai.TheLoaiId)">Edit</button>
+                    <button type="button" class="btn" ng-click="deleteTheLoai(theloai.TheLoaiId)">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

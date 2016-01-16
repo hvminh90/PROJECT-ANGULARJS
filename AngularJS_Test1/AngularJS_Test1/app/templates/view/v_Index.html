@@ -1,0 +1,14 @@
+﻿<div>
+    {{TheLoai.TenTheLoai}}
+    <hr />
+    <ul ng-repeat="tintuc in TinTucs">
+        <li>
+            <a ui-sref=".chitiettintuc({tintucid:tintuc.TinTucId})" ng-click="GetTinTuc()" style="cursor:pointer">
+                {{tintuc.TinTucId}}.{{tintuc.TieuDe}}
+            </a>
+        </li>
+    </ul>
+
+
+    <br />
+</div>
