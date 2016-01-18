@@ -2,7 +2,7 @@
     <div class="col-sm-2">
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">
+                <ul class="nav" id="side-menu" ng-init="LoadTheLoaiMenu()">
 
                     <li ng-repeat="theloai in TheLoais">
                         <a ui-sref=".theloai({id:theloai.TheLoaiId})" style="cursor:pointer">

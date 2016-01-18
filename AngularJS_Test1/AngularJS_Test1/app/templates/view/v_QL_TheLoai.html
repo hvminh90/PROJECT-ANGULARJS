@@ -42,7 +42,7 @@
 <button ng-hide="show" class="btn btn-default" type="button" style="margin-bottom: 20px;" ng-click="themtheloai()">Add Thể loại</button>
 <div>
     <div class="panel panel-default">
-        <table class="table table-bordered table-hover" style="width:100%">
+        <table class="table table-bordered table-hover" style="width:100%" ng-init="LoaTheLoai()">
             <tr>
                 <th width="2%">STT</th>
                 <th width="20%">Tên thể loại</th>
@@ -50,8 +50,8 @@
                 <th width="2%">Hoạt động</th>
                 <th width="15%">Edit/Delete</th>
             </tr>
-            <tr data-ng-repeat="theloai in TheLoais">
-                <td style="text-align:center"><strong>{{$index + 1 }}</strong></td>
+            <tr data-ng-repeat="theloai in filtered = (pagedItems | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit)">
+                <td style="text-align:center"><strong>{{($index + ((currentPage -1)* entryLimit)) + 1}}</strong></td>
                 <td><strong>{{ theloai.TenTheLoai }}</strong></td>
                 <td>{{ theloai.MoTa }}</td>
                 <td style="text-align:center"><input type="checkbox" ng-checked="theloai.IsActive" disabled /></td>
@@ -61,5 +61,16 @@
                 </td>
             </tr>
         </table>
+        <div class="box-footer clearfix text-right">
+            <div class="col-md-12" ng-show="filteredItems > 0">
+                <pagination total-items="filteredItems" on-select-page="setPage(page)" page="currentPage" max-size="itemsPerPage" class="pagination-sm" boundary-links="true" items-per-page="entryLimit"></pagination>
+
+            </div>
+        </div>
+        
+
+        
+        
+        
     </div>
 </div>

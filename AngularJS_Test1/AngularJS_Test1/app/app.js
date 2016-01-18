@@ -1,5 +1,5 @@
 ﻿/// <reference path="templates/view/v_Info.html" />
-var myApp = angular.module('myApp', ['ui.router', 'ui.bootstrap']);
+var myApp = angular.module('myApp', ['ui.router', 'ui.bootstrap', 'ngCkeditor']);
 myApp.controller('LoadPageCtr', LoadPageCtr);
 myApp.controller('NhanVienCtr', NhanVienCtr);
 myApp.controller('ErrorCtr', ErrorCtr);
@@ -11,6 +11,16 @@ myApp.factory('NhanVienFactory', NhanVienFactory);
 myApp.factory('Interceptor', Interceptor);
 myApp.factory('TheLoaiFactory', TheLoaiFactory);
 myApp.factory('TinTucFactory', TinTucFactory);
+
+myApp.filter('startFrom', function () {
+    return function (input, start) {
+        if (input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+})
 
 
 var configFunction = function ($stateProvider, $httpProvider, $locationProvider, $urlRouterProvider) {

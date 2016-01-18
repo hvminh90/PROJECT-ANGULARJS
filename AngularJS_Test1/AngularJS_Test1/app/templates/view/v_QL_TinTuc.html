@@ -1,134 +1,148 @@
 ﻿
 
+<div ng-init="LoaTheLoaiTinTuc()">
+    <div ng-show="showThemTinTuc">
+        <div class="panel panel-default" style="background-color: #f1f1f1">
+            <div class="panel-body">
+                <form name="formAdd" ng-submit="InsUpdTinTuc(TinTuc)" class="form-horizontal">
+                    <!-- START THE FORM -->
+                    <div class="col-sm-12">
+                        <!-- FIRST COLUMN -->
+                        <div class="form-group">
+                            <label for="inputFirstname" class="col-sm-2 control-label">Tiêu đề</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="tieude" placeholder="Tiêu đề" ng-model="TinTuc.TieuDe" required tabindex="1">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputLastname" class="col-sm-2 control-label">Nội dung</label>
+                            <div class="col-sm-10">
+                                <!--<textarea class="form-control" rows="5" id="mota" ng-model="TinTuc.NoiDung" placeholder="Mô tả" tabindex="2"></textarea>-->
 
-<div ng-show="showThemTinTuc">
-    <div class="panel panel-default" style="background-color: #f1f1f1">
-        <div class="panel-body">
-            <form name="formAdd" ng-submit="InsUpdTinTuc(TinTuc)" class="form-horizontal">
-                <!-- START THE FORM -->
-                <div class="col-sm-12">
-                    <!-- FIRST COLUMN -->
-                    <div class="form-group">
-                        <label for="inputFirstname" class="col-sm-2 control-label">Tiêu đề</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="tieude" placeholder="Tiêu đề" ng-model="TinTuc.TieuDe" required tabindex="1">
+                                <textarea ckeditor="editorOptions" ng-model="TinTuc.NoiDung"></textarea>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputLastname" class="col-sm-2 control-label">Nội dung</label>
-                        <div class="col-sm-10">
-                            <textarea class="form-control" rows="3" id="mota" ng-model="TinTuc.NoiDung" placeholder="Mô tả" tabindex="2"></textarea>
+                        <div class="form-group">
+                            <label for="inputLastname" class="col-sm-2 control-label">Thể loại</label>
+                            <div class="col-sm-10">
+                                <select name="theloai" id="theloai" ng-model="TinTuc.TheLoaiId" class="form-control" required tabindex="3">
+                                    <option value="">-----Chọn thể loại-----</option>
+                                    <option ng-repeat="theloai in TheLoais" value="{{theloai.TheLoaiId}}">{{theloai.TenTheLoai}}</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputLastname" class="col-sm-2 control-label">Thể loại</label>
-                        <div class="col-sm-10">
-                            <select name="theloai" id="theloai" ng-model="filter.TheLoaiId" class="form-control" required tabindex="3">
-                                <option value="">-----Chọn thể loại-----</option>
-                                <option ng-repeat="theloai in TheLoais" value="{{theloai.TheLoaiId}}">{{theloai.TenTheLoai}}</option>
-                            </select>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-sm-2 control-label">Public</label>
+                            <div class="col-sm-10">
+                                <input type="checkbox" id="IsPublic" ng-model="TinTuc.IsPublic" tabindex="4">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputEmail" class="col-sm-2 control-label">Public</label>
-                        <div class="col-sm-10">
-                            <input type="checkbox" id="IsPublic" ng-model="tintuc.IsPublic" tabindex="4">
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-sm-2 control-label">Hoạt động</label>
+                            <div class="col-sm-10">
+                                <input type="checkbox" id="IsPublic" ng-model="TinTuc.IsActive" tabindex="5" ">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputEmail" class="col-sm-2 control-label">Hoạt động</label>
-                        <div class="col-sm-10">
-                            <input type="checkbox" id="IsPublic" ng-model="tintuc.IsActive" tabindex="5">
-                        </div>
-                    </div>
-                    <div class="form-group">
+                        <div class="form-group">
 
-                        <div class="col-sm-12 text-right">
-                            <button type="button" class="btn btn-default btn-sm" ng-click="cancelSave()">Cancel</button>&nbsp;&nbsp;
-                            <button type="submit" class="btn btn-primary btn-sm">Save</button>
-                        </div>
-                    </div>
-                </div>
-
-            </form> <!-- END THE FORM -->
-        </div>
-    </div><!-- END PANEL -->
-</div>
-
-
-<button ng-hide="showThemTinTuc" class="btn btn-default" type="button" style="margin-bottom: 20px;" ng-click="themtintuc()">Thêm tin tức</button>
-<div ng-hide="showThemTinTuc">
-    <div class="panel panel-default" style="background-color: #f1f1f1">
-        <div class="panel-body">
-            <form name="formSearchTinTuc" class="form-horizontal">
-                <!-- START THE FORM -->
-                <div class="col-sm-6">
-                    <!-- FIRST COLUMN -->
-                    <div class="form-group">
-                        <label for="inputFirstname" class="col-sm-3 control-label">Tiêu đề</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="tieude" placeholder="Tiêu đề" ng-model="filter.TieuDe" required tabindex="1">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputLastname" class="col-sm-3 control-label">Thể loại</label>
-                        <div class="col-sm-9">
-                            <select name="theloai" id="theloai" ng-model="filter.TheLoaiId" class="form-control">
-                                <option value="">-----Chọn thể loại-----</option>
-                                <option ng-repeat="theloai in TheLoais" value="{{theloai.TheLoaiId}}">{{theloai.TenTheLoai}}</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <!-- SECOND COLUMN -->
-                    <div class="form-group">
-                        <label for="inputEmail" class="col-sm-3 control-label">Nội dung</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="noidung" placeholder="" ng-model="filter.NoiDung" required tabindex="2">
+                            <div class="col-sm-12 text-right">
+                                <button type="button" class="btn btn-default btn-sm" ng-click="cancelSave()">Cancel</button>&nbsp;&nbsp;
+                                <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="inputUsername" class="col-sm-3 control-label">Public</label>
-                        <div class="col-sm-9">
-                            <input type="checkbox" id="cbPublic" tabindex="4" ng-model="filter.IsPublic" ng-checked="FilterChecked" />
+                    
+
+                </form> <!-- END THE FORM -->
+            </div>
+        </div><!-- END PANEL -->
+    </div>
+
+
+    <button ng-hide="showThemTinTuc" class="btn btn-default" type="button" style="margin-bottom: 20px;" ng-click="themtintuc()">Thêm tin tức</button>
+    <div ng-hide="showThemTinTuc">
+        <div class="panel panel-default" style="background-color: #f1f1f1">
+            <div class="panel-body">
+                <form name="formSearchTinTuc" class="form-horizontal">
+                    <!-- START THE FORM -->
+                    <div class="col-sm-6">
+                        <!-- FIRST COLUMN -->
+                        <div class="form-group">
+                            <label for="inputFirstname" class="col-sm-3 control-label">Tiêu đề</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="tieude" placeholder="Tiêu đề" ng-model="filter.TieuDe" required tabindex="1">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputLastname" class="col-sm-3 control-label">Thể loại</label>
+                            <div class="col-sm-9">
+                                <select name="theloai" id="theloai" ng-model="filter.TheLoaiId" class="form-control">
+                                    <option value="">-----Chọn thể loại-----</option>
+                                    <option ng-repeat="theloai in TheLoais" value="{{theloai.TheLoaiId}}">{{theloai.TenTheLoai}}</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
+                    <div class="col-sm-6">
+                        <!-- SECOND COLUMN -->
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-sm-3 control-label">Nội dung</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="noidung" placeholder="" ng-model="filter.NoiDung" required tabindex="2">
+                            </div>
+                        </div>
 
-                </div>
-            </form> <!-- END THE FORM -->
+                        <div class="form-group">
+                            <label for="inputUsername" class="col-sm-3 control-label">Public</label>
+                            <div class="col-sm-9">
+                                <input type="checkbox" id="cbPublic" tabindex="4" ng-model="filter.IsPublic" ng-checked="FilterChecked" />
+                            </div>
+                        </div>
+
+                    </div>
+                </form> <!-- END THE FORM -->
+            </div>
         </div>
     </div>
-</div>
+    <div>
+        <div class="panel panel-default">
+            <table class="table table-bordered table-hover" style="width:100%" ng-init="LoadTinTucPhanTrang()">
+                <tr>
+                    <th width="2%" style="text-align:center">STT</th>
+                    <th style="text-align:center">Tiêu đề</th>
+                    <!--<th style="text-align:center">Nội dung</th>-->
+                    <th width="10%" style="text-align:center">Thể loại</th>
+                    <th width="2%" style="text-align:center">Public</th>
+                    <th width="2%" style="text-align:center">Hoạt động</th>
+                    <th width="15%" style="text-align:center">Edit/Delete</th>
+                </tr>
+                <tr data-ng-repeat="tintuc in filtered = (pagedItems |filter: filter | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit) ">
+                    <td style="text-align:center"><strong>{{($index + ((currentPage -1)* entryLimit)) + 1}}</strong></td>
+                    <td><strong>{{ tintuc.TieuDe }}</strong></td>
+                    <!--<td>{{ tintuc.NoiDung }}</td>-->
+                    <td style="text-align:center">
+                        <label ng-repeat="theloai in TheLoais" ng-if="theloai.TheLoaiId == tintuc.TheLoaiId">{{theloai.TenTheLoai}}</label>
+                        <!--<label ng-init="theloai = (TheLoais | filter:{TheLoaiId:tintuc.TheLoaiId}:true)[0]">{{theloai.TenTheLoai}}</label>-->
 
+                    </td>
+                    <td style="text-align:center"><input type="checkbox" ng-checked="tintuc.IsPublic" disabled /></td>
+                    <td style="text-align:center"><input type="checkbox" ng-checked="tintuc.IsActive" disabled /></td>
+                    <td>
+                        <button type="button" class="btn" ng-click="editTinTuc(tintuc)">Edit</button>
+                        <button type="button" class="btn" ng-click="deleteTinTuc(theloai.TheLoaiId)">Delete</button>
+                    </td>
+                </tr>
+            </table>
+            <div class="box-footer clearfix text-right">
+                <div class="col-md-12" ng-show="filteredItems > 0">
+                    <pagination total-items="filteredItems" on-select-page="setPage(page)" page="currentPage"
+                                max-size="itemsPerPage" class="pagination-sm" boundary-links="true" items-per-page="entryLimit">
 
-<div>
-    <div class="panel panel-default">
-        <table class="table table-bordered table-hover" style="width:100%">
-            <tr>
-                <th width="2%" style="text-align:center">STT</th>
-                <th width="30%" style="text-align:center">Tiêu đề</th>
-                <th style="text-align:center">Nội dung</th>
-                <th width="10%" style="text-align:center">Thể loại</th>
-                <th width="2%" style="text-align:center">Public</th>
-                <th width="15%" style="text-align:center">Edit/Delete</th>
-            </tr>
-            <tr data-ng-repeat="tintuc in AllTinTuc | filter:filter ">
-                <td style="text-align:center"><strong>{{$index + 1 }}</strong></td>
-                <td><strong>{{ tintuc.TieuDe }}</strong></td>
-                <td>{{ tintuc.NoiDung }}</td>
-                <td style="text-align:center">
-                    <!--<label ng-repeat="theloai in TheLoais" ng-if="theloai.TheLoaiId == tintuc.TheLoaiId">{{theloai.TenTheLoai}}</label>-->
-                    <label ng-init="theloai = (TheLoais | filter:{TheLoaiId:tintuc.TheLoaiId}:true)[0]">{{theloai.TenTheLoai}}</label>
+                    </pagination>
 
-                </td>
-                <td style="text-align:center"><input type="checkbox" ng-checked="tintuc.IsPublic" disabled /></td>
-                <td>
-                    <button type="button" class="btn" ng-click="editTinTuc(theloai.TheLoaiId)">Edit</button>
-                    <button type="button" class="btn" ng-click="deleteTinTuc(theloai.TheLoaiId)">Delete</button>
-                </td>
-            </tr>
-        </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
