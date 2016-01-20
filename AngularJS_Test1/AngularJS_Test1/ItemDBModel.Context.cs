@@ -28,5 +28,9 @@ namespace AngularJS_Test1
         public DbSet<NhanVien> NhanViens { get; set; }
         public DbSet<TinTuc> TinTucs { get; set; }
         public DbSet<TheLoai> TheLoais { get; set; }
+        public DbSet<Error> Errors { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
     }
 }
