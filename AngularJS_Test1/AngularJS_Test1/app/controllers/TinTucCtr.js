@@ -1,7 +1,11 @@
-﻿var TinTucCtr = function ($scope, TinTucFactory, TheLoaiFactory, $stateParams, $sce) {
+﻿var TinTucCtr = function ($scope, TinTucFactory, TheLoaiFactory, $stateParams, $sce,$rootScope) {
+
     console.log('Load tin tức controller...')
     $scope.TheLoaiId = $stateParams.id;
     $scope.TinTucId = $stateParams.tintucid;
+    $scope.TinTucs;
+    $scope.TenTheLoai;
+    $scope.AllTinTuc = null;
 
     //Tham số cho TinTucController
     $scope.FilterChecked = true;
@@ -44,48 +48,55 @@
             console.log('Load Thể loại của TinTucCtr: ' + data);
         })
         .error(function (error) {
-            alert('Lỗi load thể loại....')
+            //alert('Lỗi load thể loại....')
         });
     }
 
+    function LoadTenTheLoai(id) {
+        TheLoaiFactory.getTheLoai(id)
+       .success(function (data) {
+           $scope.TenTheLoai = data.TenTheLoai;
+       })
+       .error(function (error) {
+           //alert('Lỗi load thể loại....')
+       });
+    }
 
-    $scope.TinTucs;
-    $scope.TenTheLoai;
-    $scope.AllTinTuc = null;
-
-    getAllTinTuc();
-    
     function getTinTucByTheLoaiId(id) {
         TinTucFactory.getTinTucByTheLoaiId(id)
         .success(function (data) {
             $scope.TinTucs = data;
             console.log(data)
             console.log('The loai: ' + id);
+            LoadTenTheLoai(id);
+            $scope.TheLoaiIDActive = data.TheLoaiId;
         })
         .error(function () {
-            alert('lỗi hàm getTinTucByTheLoaiId()');
+            //alert('lỗi hàm getTinTucByTheLoaiId()');
         });
     };
 
-    function getAllTinTuc() {
+    $scope.LoadAllTinTuc = function () {
         TinTucFactory.getTinTucs()
         .success(function (data) {
             $scope.AllTinTuc = data;
-            console.log('All tin tức: '+data);
+            console.log('All tin tức: ' + data);
+            
         })
         .error(function () { });
-    };
+    }
 
-    
+   
     function getChiTietTinTuc(tintucid) {
         TinTucFactory.getTinTuc(tintucid)
         .success(function (data) {
             $scope.TinTuc = data;
             $scope.TinTuc.NoiDung = $sce.trustAsHtml(data.NoiDung);
             console.log('Đây là tin tức: ' + data)
+            
         })
         .error(function () {
-            alert('Lỗi hàm getChiTietTinTuc()');
+            //alert('Lỗi hàm getChiTietTinTuc()');
         });
     }
 
@@ -138,7 +149,7 @@
                 $scope.TinTuc = null;
             })
             .error(function () {
-                alert('Lỗi cập nhật tin tức....')
+                //alert('Lỗi cập nhật tin tức....')
             })
         }
         else
@@ -152,7 +163,7 @@
                 $scope.TinTuc = null;
             })
             .error(function () {
-                alert('Lỗi thêm mới tin tức....')
+                //alert('Lỗi thêm mới tin tức....')
             })
         }
     }
@@ -198,4 +209,4 @@
     //=====================================================
 }
 
-TinTucCtr.$inject = ['$scope', 'TinTucFactory', 'TheLoaiFactory', '$stateParams', '$sce']
+TinTucCtr.$inject = ['$scope', 'TinTucFactory', 'TheLoaiFactory', '$stateParams', '$sce', '$rootScope']

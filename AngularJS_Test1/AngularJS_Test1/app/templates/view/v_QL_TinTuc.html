@@ -59,8 +59,8 @@
         </div><!-- END PANEL -->
     </div>
 
-
     <button ng-hide="showThemTinTuc" class="btn btn-default" type="button" style="margin-bottom: 20px;" ng-click="themtintuc()">Thêm tin tức</button>
+
     <div ng-hide="showThemTinTuc">
         <div class="panel panel-default" style="background-color: #f1f1f1">
             <div class="panel-body">
@@ -105,6 +105,7 @@
             </div>
         </div>
     </div>
+
     <div>
         <div class="panel panel-default">
             <table class="table table-bordered table-hover" style="width:100%" ng-init="LoadTinTucPhanTrang()">
@@ -129,8 +130,8 @@
                     <td style="text-align:center"><input type="checkbox" ng-checked="tintuc.IsPublic" disabled /></td>
                     <td style="text-align:center"><input type="checkbox" ng-checked="tintuc.IsActive" disabled /></td>
                     <td>
-                        <button type="button" class="btn" ng-click="editTinTuc(tintuc)">Edit</button>
-                        <button type="button" class="btn" ng-click="deleteTinTuc(theloai.TheLoaiId)">Delete</button>
+                        <button type="button" class="btn btn-primary btn-sm" ng-click="editTinTuc(tintuc)">Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm" ng-click="deleteTinTuc(theloai.TheLoaiId)">Delete</button>
                     </td>
                 </tr>
             </table>

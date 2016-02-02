@@ -36,19 +36,19 @@ namespace AngularJS_Test1.Infrastructure.Core
 
         private void LogError(Exception ex)
         {
-            try
-            {
-                Error _error = new Error()
-                {
-                    Message = ex.Message,
-                    StackTrace = ex.StackTrace,
-                    DateCreated = DateTime.Now
-                };
+            //try
+            //{
+            //    Error _error = new Error()
+            //    {
+            //        Message = ex.Message,
+            //        StackTrace = ex.StackTrace,
+            //        DateCreated = DateTime.Now
+            //    };
 
-                //_errorsRepository.Add(_error);
-                //_unitOfWork.Commit();
-            }
-            catch { }
+            //    //_errorsRepository.Add(_error);
+            //    //_unitOfWork.Commit();
+            //}
+            //catch { }
         }
 
     }

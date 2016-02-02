@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AngularJS_Test1.MessageHandlers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Formatting;
@@ -14,6 +15,8 @@ namespace AngularJS_Test1
             config.Formatters.XmlFormatter.AddUriPathExtensionMapping("xml", XmlMediaTypeFormatter.DefaultMediaType);
             config.Formatters.JsonFormatter.AddUriPathExtensionMapping("json", JsonMediaTypeFormatter.DefaultMediaType);
             // Web API routes
+            //config.MapHttpAttributeRoutes();
+            config.MessageHandlers.Add(new AngularTestAuthHandler());
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

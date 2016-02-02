@@ -1,0 +1,13 @@
+﻿
+<div id="menu" style="margin-right:5px" ng-init="LoadTheLoaiMenu()" >
+    <ul class="nav nav-pills nav-stacked" >
+        <li ng-repeat="theloai in TheLoais" ng-click="select($index)" ng-class="{active: $index == selected}">
+            <a ui-sref=" .theloai({id:theloai.TheLoaiId})" style="padding-left: 20px;">
+                {{theloai.TenTheLoai}}
+            </a>
+        </li>
+        <li ng-class="{active:$state.includes('tintuc.menu2')}"><a ui-sref=".menu2">Menu 2</a></li>
+    </ul>
+</div>
+
+<!--ng-class="{active:$state.includes('tintuc.theloai')}", ng-class="{active: $state.includes('tintuc')}"-->

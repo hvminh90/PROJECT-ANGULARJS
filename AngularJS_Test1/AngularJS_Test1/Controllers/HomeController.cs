@@ -27,5 +27,9 @@ namespace AngularJS_Test1.Controllers
         {
             return View();
         }
+        public ActionResult Admin()
+        {
+            return View();
+        }
     }
 }

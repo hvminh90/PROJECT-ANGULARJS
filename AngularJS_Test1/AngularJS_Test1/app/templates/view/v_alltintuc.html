@@ -1,4 +1,7 @@
-﻿<div>
+﻿
+<div ng-init="LoadAllTinTuc()">
+    <h2 style="padding-left:20px;font-weight:bold">Tin tức trong ngày</h2>
+    <hr />
     <ul ng-repeat="tintuc in AllTinTuc">
         <li>
             <a ui-sref="tintuc.chitiet({tintucid:tintuc.TinTucId})" style="cursor:pointer">

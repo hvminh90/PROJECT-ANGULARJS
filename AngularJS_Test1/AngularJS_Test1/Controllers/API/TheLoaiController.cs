@@ -12,11 +12,13 @@ using AngularJS_Test1;
 
 namespace AngularJS_Test1.Controllers.API
 {
+   
     public class TheLoaiController : ApiController
     {
         private ItemDBEntities db = new ItemDBEntities();
 
         // GET api/TheLoai
+       //[Authorize(Roles="User")]
         public IQueryable<TheLoai> GetTheLoais()
         {
             return db.TheLoais.Where(p=>p.IsDelete == false);

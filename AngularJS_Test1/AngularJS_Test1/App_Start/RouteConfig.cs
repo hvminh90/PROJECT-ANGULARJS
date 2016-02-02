@@ -37,15 +37,21 @@ namespace AngularJS_Test1
             //    defaults: new { controller = "Home", action = "NhanVien" });
 
             //routes.MapRoute(
-            //    name: "Info",
-            //    url: "Home/Info",
-            //    defaults: new { controller = "Home", action = "Info" });
+            //    name: "Admin",
+            //    url: "Home/Admin",
+            //    defaults: new { controller = "Home", action = "Admin" });
 
 
-           routes.MapRoute(
-               name: "Default",
-               url: "{*url}",
-               defaults: new { controller = "Home", action = "Index" });
+            routes.MapRoute(
+                name: "Default",
+                url: "{*url}",
+                defaults: new { controller = "Home", action = "Index" });
+
+            //routes.MapRoute(
+            //    name: "Default",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            //);
 
             //routes.AppendTrailingSlash = true;
         }

@@ -5,15 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ItemDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Error">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Message" Type="nvarchar(max)" />
-          <Property Name="StackTrace" Type="nvarchar(max)" />
-          <Property Name="DateCreated" Type="datetime" Nullable="false" />
-        </EntityType>
         <EntityType Name="NhanVien">
           <Key>
             <PropertyRef Name="ID" />
@@ -105,7 +96,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ItemDBModelStoreContainer">
-          <EntitySet Name="Error" EntityType="Self.Error" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TheLoai" EntityType="Self.TheLoai" Schema="dbo" store:Type="Tables" />
@@ -139,7 +129,6 @@
           <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
           <EntitySet Name="TinTucs" EntityType="ItemDBModel.TinTuc" />
           <EntitySet Name="TheLoais" EntityType="ItemDBModel.TheLoai" />
-          <EntitySet Name="Errors" EntityType="ItemDBModel.Error" />
           <EntitySet Name="Roles" EntityType="ItemDBModel.Role" />
           <EntitySet Name="Users" EntityType="ItemDBModel.User" />
           <EntitySet Name="UserRoles" EntityType="ItemDBModel.UserRole" />
@@ -176,15 +165,6 @@
           <Property Name="MoTa" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" />
           <Property Name="IsDelete" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="Error">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -286,16 +266,6 @@
                 <ScalarProperty Name="MoTa" ColumnName="MoTa" />
                 <ScalarProperty Name="TenTheLoai" ColumnName="TenTheLoai" />
                 <ScalarProperty Name="TheLoaiId" ColumnName="TheLoaiId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Errors">
-            <EntityTypeMapping TypeName="ItemDBModel.Error">
-              <MappingFragment StoreEntitySet="Error">
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

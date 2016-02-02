@@ -14,7 +14,6 @@
     <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
     <EntitySet Name="TinTucs" EntityType="ItemDBModel.TinTuc" />
     <EntitySet Name="TheLoais" EntityType="ItemDBModel.TheLoai" />
-    <EntitySet Name="Errors" EntityType="ItemDBModel.Error" />
     <EntitySet Name="Roles" EntityType="ItemDBModel.Role" />
     <EntitySet Name="Users" EntityType="ItemDBModel.User" />
     <EntitySet Name="UserRoles" EntityType="ItemDBModel.UserRole" />
@@ -51,15 +50,6 @@
     <Property Name="MoTa" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
     <Property Name="IsActive" Type="Boolean" />
     <Property Name="IsDelete" Type="Boolean" />
-  </EntityType>
-  <EntityType Name="Error">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="Role">
     <Key>

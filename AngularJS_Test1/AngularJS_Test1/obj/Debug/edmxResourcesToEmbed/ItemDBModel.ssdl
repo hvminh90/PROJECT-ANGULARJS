@@ -1,14 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ItemDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="Error">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Message" Type="nvarchar(max)" />
-    <Property Name="StackTrace" Type="nvarchar(max)" />
-    <Property Name="DateCreated" Type="datetime" Nullable="false" />
-  </EntityType>
   <EntityType Name="NhanVien">
     <Key>
       <PropertyRef Name="ID" />
@@ -100,7 +91,6 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="ItemDBModelStoreContainer">
-    <EntitySet Name="Error" EntityType="Self.Error" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TheLoai" EntityType="Self.TheLoai" Schema="dbo" store:Type="Tables" />

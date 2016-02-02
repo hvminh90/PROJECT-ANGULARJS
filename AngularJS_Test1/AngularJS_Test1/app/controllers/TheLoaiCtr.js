@@ -1,4 +1,4 @@
-﻿var TheLoaiCtr = function ($scope, TheLoaiFactory) {
+﻿var TheLoaiCtr = function ($scope, TheLoaiFactory, $rootScope,$state) {
     $scope.show = false;
     console.log('Load thể loại controller .....');
     $scope.TheLoais;
@@ -39,7 +39,7 @@
 
         })
         .error(function (error) {
-            alert('Lỗi load thể loại....')
+            //alert('Lỗi load thể loại....')
         });
     }
 
@@ -52,10 +52,14 @@
         TheLoaiFactory.getTheLoais()
         .success(function (data) {
             $scope.TheLoais = data;
-            console.log('All thể loại: ' + data);
+            console.log('Load thể loại menu: ' + data);
+            $scope.$state = $state;
+          
+            $scope.selected = -1;
+            console.log('Reset selected: ' + $scope.selected)
         })
         .error(function (error) {
-            alert('Lỗi load thể loại....')
+            //alert('Lỗi load thể loại....')
         });
     }
 
@@ -86,7 +90,7 @@
             console.log(data);
         })
         .error(function () {
-            alert("Lỗi lấy thông tin thể loại");
+            //alert("Lỗi lấy thông tin thể loại");
         })
     }
 
@@ -104,7 +108,7 @@
                 $scope.LoaTheLoai();
             })
             .error(function () {
-                alert("Lỗi cập nhật thể loại");
+                //alert("Lỗi cập nhật thể loại");
             })
 
         }
@@ -119,7 +123,7 @@
                 $scope.LoaTheLoai();
             })
             .error(function () {
-                alert("Lỗi thêm mới thể loại");
+                //alert("Lỗi thêm mới thể loại");
             })
         }
     }
@@ -129,8 +133,7 @@
             if (result) {
                 TheLoaiFactory.deleteTheLoai(id)
                 .success(function () {
-                    getTheLoais();
-                    alertXoa();
+                    $scope.LoaTheLoai();
                 })
                 .error(function () {
                     alert("Lỗi cmnr -_-");
@@ -139,6 +142,17 @@
         });
     }
 
+
+    //$rootScope.idTheLoai = 2;
+    //console.log($rootScope.idTheLoai);
+
+    $scope.selected = -1;
+
+    $scope.select = function (index) {
+        $scope.selected = index;
+        console.log('selected : ' + index);
+    };
+
 }
 
-TheLoaiCtr.$inject = ['$scope', 'TheLoaiFactory'];
+TheLoaiCtr.$inject = ['$scope', 'TheLoaiFactory', '$rootScope','$state'];

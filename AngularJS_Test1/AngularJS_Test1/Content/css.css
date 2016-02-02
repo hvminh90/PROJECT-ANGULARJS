@@ -18,3 +18,21 @@
 .margin-top-10px{
     margin-top:10px;
 }
+@media(max-width:767px){
+    .no-padding-res{
+        padding-left:15px !important;
+        padding-right:15px !important;
+    }
+}
+.no-padding-res{
+    padding-left:0 !important;
+    padding-right:0 !important;
+}
+.thoat{
+        cursor:pointer;
+        text-decoration:none;
+}
+
+ a:hover.thoat {
+    text-decoration:none;
+}

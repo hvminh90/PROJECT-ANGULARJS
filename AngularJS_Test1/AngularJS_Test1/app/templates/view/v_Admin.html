@@ -1,0 +1,29 @@
+﻿
+
+
+<side-bar-admin></side-bar-admin>
+
+
+<div class="container mainContent">
+    <div class="row">
+        <div class="col-sm-3 no-padding-res">
+            <div id="menu" class="margin-left-right-3px ">
+                <ul class="nav nav-pills nav-stacked">
+                    <li ui-sref-active="active"><a ui-sref=".qltheloai">Quản lý Thể loại</a></li>
+                    <li ui-sref-active="active"><a ui-sref=".qltintuc">Quản lý Tin tức</a></li>
+                    <li ui-sref-active="active"> <a ui-sref=".nhanvien">Quản lý Nhân viên</a></li>
+                    <!--<li ui-sref-active="active"> <a ui-sref=".nhanvien">Quản lý Nhân viên</a></li>-->
+                </ul>
+            </div>
+
+        </div>
+        <div class="col-sm-9 no-padding-res">
+            <div id="content-admin" class="margin-left-right-3px " style="min-height:500px">
+                <ui-view ="admincontent">
+
+                </ui-view>
+            </div>
+
+        </div>
+    </div>
+</div>

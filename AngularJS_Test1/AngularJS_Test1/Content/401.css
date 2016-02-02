@@ -1,0 +1,18 @@
+﻿body {
+}
+
+.error-page {
+   
+    background-color: #f2f1ef;
+    width:100% !important;
+    background: #f2f1ef;
+    color: #030303;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 300;
+   
+}
+.error-page h1.error-number {
+    text-align: center;
+    font-size: 20em;
+    font-family: 'Cantarell';
+}

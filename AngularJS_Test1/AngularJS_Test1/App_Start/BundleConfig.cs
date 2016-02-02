@@ -30,6 +30,7 @@ namespace AngularJS_Test1
             bundles.Add(new ScriptBundle("~/bundles/myApp")
                .IncludeDirectory("~/app/controllers", "*.js")
                .IncludeDirectory("~/app/factories", "*.js")
+               .IncludeDirectory("~/app/directives", "*.js")
                .Include("~/app/app.js"));
         }
     }

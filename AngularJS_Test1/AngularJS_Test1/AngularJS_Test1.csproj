@@ -39,6 +39,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=3.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -137,13 +145,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Entities\Error.cs" />
     <Compile Include="Entities\IEntityBase.cs" />
-    <Compile Include="Error.cs">
-      <DependentUpon>ItemDBModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Extensions\RequestMessageExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Core\ApiControllerBase.cs" />
+    <Compile Include="Infrastructure\Disposable.cs" />
     <Compile Include="ItemDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -159,9 +166,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ItemDBModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\CustomMembershipProvider.cs" />
+    <Compile Include="MessageHandlers\AngularTestAuthHandler.cs" />
+    <Compile Include="Models\CustomAuthorizeAttribute.cs" />
+    <Compile Include="Models\CustomMemberShip.cs" />
     <Compile Include="Models\CustomRoleProvider.cs" />
+    <Compile Include="Models\IMembershipService.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\MembershipService.cs" />
+    <Compile Include="Models\MembershipContext.cs" />
     <Compile Include="Models\RegistrationViewModel.cs" />
     <Compile Include="NhanVien.cs">
       <DependentUpon>ItemDBModel.tt</DependentUpon>
@@ -199,18 +211,32 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app -bk-01022016.js" />
     <Content Include="app\controllers\ErrorCtr.js" />
+    <Content Include="app\controllers\loginCtrl.js" />
+    <Content Include="app\controllers\registerCtrl.js" />
+    <Content Include="app\controllers\rootCtrl.js" />
     <Content Include="app\controllers\TheLoaiCtr.js" />
     <Content Include="app\controllers\TinTucCtr.js" />
+    <Content Include="app\directives\sideBar_bk.html" />
+    <Content Include="app\directives\sideBar.html" />
+    <Content Include="app\directives\sideBarAdmin.directive.js" />
+    <Content Include="app\directives\sideBarAdmin.html" />
     <Content Include="app\factories\Interceptor.js" />
+    <Content Include="app\factories\membershipService.js" />
     <Content Include="app\factories\TheLoaiFactory.js" />
     <Content Include="app\factories\TinTucFactory.js" />
     <Content Include="app\templates\partial\p_ContentTinTuc.html" />
     <Content Include="app\templates\partial\p_DetailTinTuc.html" />
     <Content Include="app\templates\partial\p_MenuTinTuc.html" />
+    <Content Include="app\templates\partial\p_menu_tintuc.html" />
+    <Content Include="app\templates\view\401.html" />
+    <Content Include="app\templates\view\login.html" />
+    <Content Include="app\templates\view\register.html" />
     <Content Include="app\templates\view\test.html" />
     <Content Include="app\templates\view\v_404.html" />
     <Content Include="app\templates\view\v_About.html" />
+    <Content Include="app\templates\view\v_Admin.html" />
     <Content Include="app\templates\view\v_alltintuc.html" />
     <Content Include="app\templates\view\v_contacts.detail.html" />
     <Content Include="app\templates\view\v_contacts.html" />
@@ -222,6 +248,7 @@
     <Content Include="app\templates\view\v_QL_TheLoai.html" />
     <Content Include="app\templates\view\v_QL_TinTuc.html" />
     <Content Include="app\templates\view\v_TinTuc.html" />
+    <Content Include="Content\401.css" />
     <Content Include="Content\Admin\css\bootstrap-theme.css" />
     <Content Include="Content\Admin\css\bootstrap-theme.min.css" />
     <Content Include="Content\Admin\css\bootstrap.css" />
@@ -264,6 +291,12 @@
       <LastGenOutput>ItemDBModel.cs</LastGenOutput>
     </Content>
     <Content Include="app\app.js" />
+    <Content Include="Scripts\angular-base64.js" />
+    <Content Include="Scripts\angular-cookies.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-utf8-base64.js" />
+    <Content Include="Scripts\angular-utf8-base64.min.js" />
+    <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -463,6 +496,7 @@
     <Content Include="Scripts\ckeditor\skins\moono\readme.md" />
     <Content Include="Scripts\ckeditor\plugins\imagebrowser\README.rst" />
     <Content Include="Scripts\ckeditor\plugins\insertpre\README.md" />
+    <Content Include="app\directives\sideBar.directive.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="app\controllers\LoadPageCtr.js" />
     <Content Include="app\controllers\NhanVienCtr.js" />
@@ -880,6 +914,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -40,6 +40,7 @@
 </div>
 
 <button ng-hide="show" class="btn btn-default" type="button" style="margin-bottom: 20px;" ng-click="themtheloai()">Add Thể loại</button>
+
 <div>
     <div class="panel panel-default">
         <table class="table table-bordered table-hover" style="width:100%" ng-init="LoaTheLoai()">
@@ -55,9 +56,9 @@
                 <td><strong>{{ theloai.TenTheLoai }}</strong></td>
                 <td>{{ theloai.MoTa }}</td>
                 <td style="text-align:center"><input type="checkbox" ng-checked="theloai.IsActive" disabled /></td>
-                <td>
-                    <button type="button" class="btn" ng-click="editTheLoai(theloai.TheLoaiId)">Edit</button>
-                    <button type="button" class="btn" ng-click="deleteTheLoai(theloai.TheLoaiId)">Delete</button>
+                <td width="15%">
+                    <button type="button" class="btn btn-primary btn-sm" ng-click="editTheLoai(theloai.TheLoaiId)">Edit</button>
+                    <button type="button" class="btn btn-danger btn-sm" ng-click="deleteTheLoai(theloai.TheLoaiId)">Delete</button>
                 </td>
             </tr>
         </table>

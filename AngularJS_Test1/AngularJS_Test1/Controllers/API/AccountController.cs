@@ -7,15 +7,38 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Controllers;
 using System.Web.Security;
 
 namespace AngularJS_Test1.Controllers.API
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiControllerBase
     {
         ItemDBEntities dbContext = new ItemDBEntities();
+        MembershipService _membershipService = new MembershipService();
+        //public CustomMemberShip MembershipService { get; set; }
+        //public CustomRoleProvider AuthorizationService { get; set; }
+
+
+        //protected override void Initialize(System.Web.Http.Controllers.HttpControllerContext controllerContext)
+        //{
+        //    //Your Logic
+        //    //throw new HttpResponseException(controllerContext.Request.CreateErrorResponse(System.Net.HttpStatusCode.Unauthorized, "error"));
+            
+        //    if (AuthorizationService == null)
+        //        AuthorizationService = new CustomRoleProvider();
+        //    base.Initialize(controllerContext);
+        //}
+         [AllowAnonymous]
+         [Route("test")]
+        [HttpGet]
+        public string Test()
+        {
+            return "minh";
+        }
+
         [AllowAnonymous]
         [Route("login")]
         [HttpPost]
@@ -24,28 +47,35 @@ namespace AngularJS_Test1.Controllers.API
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
+                MembershipContext _userContext = _membershipService.ValidateUser(user.Username, user.Password);
 
-                if (ValidateUser(user.Username, user.Password))
+                if (_userContext.User != null)
                 {
+                    
                     response = request.CreateResponse(HttpStatusCode.OK, new { success = true });
                 }
                 else
                 {
                     response = request.CreateResponse(HttpStatusCode.OK, new { success = false });
                 }
+                
                 return response;
             });
+
+            //var a = User.Identity.Name;
         }
 
         [AllowAnonymous]
         [Route("register")]
         [HttpPost]
-        public HttpResponseMessage Register(HttpRequestMessage request, RegistrationViewModel user,string RoleId)
+        public HttpResponseMessage Register(HttpRequestMessage request, RegistrationViewModel user)
         {
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
                 var _user = CreateUser(user.Username, user.Email, user.Password, new int[] { 1 });
+
+              
 
                 if (_user != null)
                 {
@@ -69,7 +99,7 @@ namespace AngularJS_Test1.Controllers.API
                 Salt = passwordSalt,
                 Email = email,
                 IsLocked = false,
-                HashedPassword = EncryptionService.EncryptPassword(passWord, passwordSalt),
+                HashedPassword = "123456789",//EncryptionService.EncryptPassword(passWord, passwordSalt),
                 DateCreated = DateTime.Now
             };
             dbContext.Users.Add(user);
@@ -90,33 +120,6 @@ namespace AngularJS_Test1.Controllers.API
             }
             return user;
         }
-        public User CheckExistUser(string username)
-        {
-           
-            var user = dbContext.Users.Where(p => p.Username == username).FirstOrDefault();
-            if (user != null) return user;
-            return null;
-        }
-        private bool isPasswordValid(User user, string password)
-        {
-            return string.Equals(EncryptionService.EncryptPassword(password, user.Salt), user.HashedPassword);
-        }
-
-        private bool isUserValid(User user, string password)
-        {
-            if (isPasswordValid(user, password))
-            {
-                return !user.IsLocked;
-            }
-
-            return false;
-        }
-        public  bool ValidateUser(string username, string password)
-        {
-            var user = CheckExistUser(username);
-            if (user != null && isUserValid(user, password))
-                return true;
-            return false;
-        }
+        
     }
 }

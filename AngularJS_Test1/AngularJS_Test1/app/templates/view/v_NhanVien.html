@@ -48,7 +48,6 @@
 
 <button ng-hide="show" class="btn btn-default" type="button" style="margin-bottom: 20px;" ng-click="themnhanvien()">Add Nhân viên</button>
 
-
 <div>
     <div class="panel panel-default">
         <table class="table table-bordered table-hover" style="width:100%">
@@ -58,7 +57,7 @@
                 <th>Email</th>
                 <th>Địa chỉ</th>
                 <th>Số điện thoại</th>
-                <th>Edit/Delete</th>
+                <th width="15%">Edit/Delete</th>
             </tr>
             <tr data-ng-repeat="nhanvien in NhanViens">
                 <td><strong>{{ nhanvien.ID }}</strong></td>
@@ -66,9 +65,9 @@
                 <td><strong>{{ nhanvien.Email }}</strong></td>
                 <td><strong>{{ nhanvien.DiaChi }}</strong></td>
                 <td><strong>{{ nhanvien.SoDienThoai }}</strong></td>
-                <td>
-                    <button type="button" class="btn" ng-click="editNhanVien(nhanvien.ID)">Edit</button>
-                    <button type="button" class="btn" ng-click="deleteNhanVien(nhanvien.ID)">Delete</button>
+                <td width="15%">
+                    <button type="button" class="btn btn-primary btn-sm" ng-click="editNhanVien(nhanvien.ID)">Edit</button>
+                    <button type="button" class="btn btn-danger btn-sm" ng-click="deleteNhanVien(nhanvien.ID)">Delete</button>
                 </td>
             </tr>
         </table>

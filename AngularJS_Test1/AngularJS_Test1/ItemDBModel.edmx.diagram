@@ -8,7 +8,6 @@
         <EntityTypeShape EntityType="ItemDBModel.NhanVien" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ItemDBModel.TinTuc" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="ItemDBModel.TheLoai" Width="1.5" PointX="3.375" PointY="0.75" />
-        <EntityTypeShape EntityType="ItemDBModel.Error" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="ItemDBModel.Role" Width="1.5" PointX="3.375" PointY="4.125" />
         <EntityTypeShape EntityType="ItemDBModel.User" Width="1.5" PointX="3.375" PointY="6.625" />
         <EntityTypeShape EntityType="ItemDBModel.UserRole" Width="1.5" PointX="5.625" PointY="3.875" />
