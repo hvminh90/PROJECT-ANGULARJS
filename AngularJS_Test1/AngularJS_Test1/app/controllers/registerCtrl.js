@@ -6,7 +6,7 @@
         membershipService.register($scope.user)
         .success(function (data) {
             if (data.success) {
-                console.log(data.success);
+                //console.log(data.success);
                 membershipService.saveCredentials($scope.user);
                 $scope.userData.displayUserInfo();
                 $location.path('/');

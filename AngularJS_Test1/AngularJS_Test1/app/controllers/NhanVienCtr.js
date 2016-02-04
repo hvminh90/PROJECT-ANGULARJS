@@ -53,8 +53,8 @@
             SoDienThoai: $scope.SoDienThoai
         };
 
-        console.log($scope.ID);
-        console.log('Insert nhan vien.....')
+        //console.log($scope.ID);
+        //console.log('Insert nhan vien.....')
         NhanVienFactory.insertNhanVien(nhanVien)
         .success(function () {
             $scope.status = 'Inserted Customer! Refreshing customer list.';
@@ -109,15 +109,15 @@
     }
 
     $scope.editNhanVien = function (id) {
-        console.log(id);
+        //console.log(id);
 
-        console.log('Edit nhan vien');
+        //console.log('Edit nhan vien');
         if ($scope.show == false) {
             $scope.show = true;
         }
         NhanVienFactory.getNhanVien(id)
         .success(function (data) {
-            console.log(data);
+            //console.log(data);
             //$scope.show = !$scope.show;
             $scope.HoTen = data.HoTen;
             $scope.Email = data.Email;
@@ -136,8 +136,8 @@
 
     $scope.InsUpdNhanVien = function () {
         if ($scope.ID != '' && $scope.ID != '0') {
-            console.log('Update 1 . 2. 3');
-            console.log($scope.ID);
+            ///console.log('Update 1 . 2. 3');
+            //console.log($scope.ID);
             var nhanvienEdit = {
                 ID: $scope.ID,
                 HoTen: $scope.HoTen,

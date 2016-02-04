@@ -10,10 +10,10 @@
         .success(function (data) {
             if(data.success)
             {
-                console.log($scope.user);
+                //console.log($scope.user);
                 membershipService.saveCredentials($scope.user);
                 $scope.userData.displayUserInfo();
-                console.log("Đăng nhap thanh công:" + $rootScope.previousState);
+                //console.log("Đăng nhap thanh công:" + $rootScope.previousState);
                 if ($rootScope.previousState)
                     $location.path($rootScope.previousState);
                 else

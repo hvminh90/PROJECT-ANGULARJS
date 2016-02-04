@@ -12,7 +12,7 @@
             $scope.username = $rootScope.repository.loggedUser.username;
         }
         else $scope.username = null;
-        console.log($scope.userData.isUserLoggedIn + ' đã log');
+       // console.log($scope.userData.isUserLoggedIn + ' đã log');
        
     }
 
@@ -25,5 +25,9 @@
 
     //$rootScope.idTheLoai = 2;
     //console.log($rootScope.idTheLoai);
+    //$scope.ResetSelected = function () {
+    //    $scope.selected = -1;
+    //    console.log("Reset: " + $scope.selected);
+    //};
 }
 rootCtrl.$inject = ['$scope', '$location', 'membershipService', '$rootScope'];

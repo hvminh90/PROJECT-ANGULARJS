@@ -85,28 +85,29 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
         controller: 'NhanVienCtr'
 
     })
-    
+
     .state('tintuc', {
         url: '/tintuc',
         views: {
-            "": {
-                templateUrl: 'app/templates/view/v_TinTuc.html',
-                controller: function($scope)
-                {
-                    $scope.selected = -1;
-                }
-            },
+            "": { templateUrl: 'app/templates/view/v_TinTuc.html' },
 
             "menu_tintuc@tintuc": {
                 templateUrl: 'app/templates/partial/p_menu_tintuc.html',
                 controller: TheLoaiCtr
+               
             },
             "content_tintuc@tintuc": {
                 templateUrl: 'app/templates/view/v_alltintuc.html',
                 controller: TinTucCtr
+               
             }
 
-        }
+        },
+        //reloadOnSearch: false,
+
+        //onEnter: function () {
+        //    console.log("Load state Tin tức");
+        //}
     })
     .state('tintuc.theloai', {
         url: '^/the-loai-:id',
@@ -116,10 +117,10 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
                 controller: TinTucCtr
             }
         },
-        
-        onEnter: function () {
-            console.log("enter the loai");
-        }
+
+        //onEnter: function () {
+        //    console.log("enter the loai");
+        //}
     })
     .state('tintuc.menu2', {
         url: '/menu2',
@@ -137,15 +138,15 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
     .state('tintuc.chitiet', {
         url: '/tin-tuc-noi-bat-:tintucid',
         views: {
-            '@tintuc': {
+            'content_tintuc@tintuc': {
                 templateUrl: 'app/templates/partial/p_DetailTinTuc.html',
                 controller: TinTucCtr
             }
         },
 
-        onEnter: function ($stateParams) {
-            console.log("enter tin tuc nổi bật:  " + $stateParams.tintucid);
-        }
+        //onEnter: function ($stateParams) {
+        //    console.log("enter tin tuc nổi bật:  " + $stateParams.tintucid);
+        //}
     })
     .state('tintuc.theloai.chitiettintuc', {
         url: '/tin-tuc-:tintucid',
@@ -156,9 +157,9 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
             }
         },
 
-        onEnter: function ($stateParams) {
-            console.log("enter tin tuc detail:  " + $stateParams.tintucid);
-        }
+        //onEnter: function ($stateParams) {
+        //    console.log("enter tin tuc detail:  " + $stateParams.tintucid);
+        //}
     })
     .state('admin.qltheloai', {
         url: '/ql-theloai',
@@ -196,7 +197,7 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
         url: '/admin-page',
         templateUrl: 'app/templates/view/v_Admin.html',
     });
-     
+
     $httpProvider.interceptors.push('Interceptor');
 
 
@@ -233,7 +234,7 @@ function run($rootScope, $location, $cookieStore, $http, $state, membershipServi
         var isChangeState = menu.indexOf(to.name);
         if (isChangeState < 0) {
             $rootScope.previousState = $location.path();
-            console.log("Chuyển state:" + $rootScope.previousState);
+            //console.log("Chuyển state:" + $rootScope.previousState);
         }
 
     });

@@ -1,20 +1,23 @@
 ﻿var TinTucCtr = function ($scope, TinTucFactory, TheLoaiFactory, $stateParams, $sce,$rootScope) {
 
     console.log('Load tin tức controller...')
+
+    //================================= Tham số tin tức =============================================
     $scope.TheLoaiId = $stateParams.id;
     $scope.TinTucId = $stateParams.tintucid;
     $scope.TinTucs;
     $scope.TenTheLoai;
     $scope.AllTinTuc = null;
 
-    //Tham số cho TinTucController
     $scope.FilterChecked = true;
     $scope.showThemTinTuc = false;
     $scope.TenTheLoaiTinTuc = "";
     $scope.TheLoais = null;
     $scope.TinTuc = {};
+    //===============================================================================================
 
-    //=====================Phân trang==================================
+    
+    //===================== Phân trang quản lý tin tức ==============================================
     $scope.filteredItems = [];
     $scope.groupedItems = [];
     $scope.itemsPerPage = 5;
@@ -28,7 +31,7 @@
         TinTucFactory.getTinTucs()
         .success(function (data) {
             $scope.AllTinTuc = data;
-            console.log('Load tin tức phân trang: ' + data);
+            //console.log('Load tin tức phân trang: ' + data);
             $scope.pagedItems = data;
             $scope.currentPage = 1; //current page
             $scope.entryLimit = 10; //max no of items to display in a page
@@ -37,15 +40,15 @@
         })
         .error(function () { });
     }
-    //===================================================================
+    //===============================================================================================
 
 
-  
+    //===================================== Load tin tức theo thể loại===============================
     $scope.LoaTheLoaiTinTuc = function() {
         TheLoaiFactory.getTheLoais()
         .success(function (data) {
             $scope.TheLoais = data;
-            console.log('Load Thể loại của TinTucCtr: ' + data);
+            //console.log('Load Thể loại của TinTucCtr: ' + data);
         })
         .error(function (error) {
             //alert('Lỗi load thể loại....')
@@ -66,8 +69,8 @@
         TinTucFactory.getTinTucByTheLoaiId(id)
         .success(function (data) {
             $scope.TinTucs = data;
-            console.log(data)
-            console.log('The loai: ' + id);
+            //console.log(data)
+            //console.log('The loai: ' + id);
             LoadTenTheLoai(id);
             $scope.TheLoaiIDActive = data.TheLoaiId;
         })
@@ -80,7 +83,7 @@
         TinTucFactory.getTinTucs()
         .success(function (data) {
             $scope.AllTinTuc = data;
-            console.log('All tin tức: ' + data);
+            //console.log('All tin tức của all tin tức: ' + data);
             
         })
         .error(function () { });
@@ -92,7 +95,7 @@
         .success(function (data) {
             $scope.TinTuc = data;
             $scope.TinTuc.NoiDung = $sce.trustAsHtml(data.NoiDung);
-            console.log('Đây là tin tức: ' + data)
+            //console.log('Đây là tin tức: ' + data)
             
         })
         .error(function () {
@@ -106,10 +109,10 @@
     if ($stateParams.id && $stateParams.id != "") {
         getTinTucByTheLoaiId($scope.TheLoaiId);
     }
-
+    //============================================================================================
     
 
-    //============Thêm xóa sửa tin tức=====================
+    //============================= Quản lý Thêm xóa sửa tin tức==================================
     $scope.themtintuc = function () {
         $scope.showThemTinTuc = !$scope.showThemTinTuc;
         $scope.TinTuc = {
@@ -140,7 +143,7 @@
         if(tintuc.TinTucId != 0 && tintuc.TinTucId != '')
         {
             console.log(tintuc.NoiDung);
-            console.log('Cập nhật tin tức.....');
+            //console.log('Cập nhật tin tức.....');
             TinTucFactory.updateTinTuc(tintuc)
             .success(function (data) {
                 console.log(data);
@@ -154,7 +157,7 @@
         }
         else
         {
-            console.log('Thêm mới tin tức.....')
+            //console.log('Thêm mới tin tức.....')
             TinTucFactory.insertTinTuc(tintuc)
             .success(function (data) {
                 console.log(data);
@@ -206,7 +209,7 @@
                     { name: 'insert', items: [ 'Image', 'Table', 'SpecialChar'] },'/',
                 ]
             };
-    //=====================================================
+    //=============================================================================================================================
 }
 
 TinTucCtr.$inject = ['$scope', 'TinTucFactory', 'TheLoaiFactory', '$stateParams', '$sce', '$rootScope']

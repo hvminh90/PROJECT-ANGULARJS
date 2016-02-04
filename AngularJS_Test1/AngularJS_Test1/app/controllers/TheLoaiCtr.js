@@ -1,10 +1,16 @@
-﻿var TheLoaiCtr = function ($scope, TheLoaiFactory, $rootScope,$state) {
+﻿var TheLoaiCtr = function ($scope, TheLoaiFactory, $rootScope, $state) {
+
+    //================================= Khai báo biến ===================================================
     $scope.show = false;
     console.log('Load thể loại controller .....');
-    $scope.TheLoais;
+    $scope.TheLoaiMenu = null;
     $scope.TheLoai = null;
+    //===================================================================================================
 
-    //Thông báo
+
+     
+
+    //============================== Thông báo cập nhật, xóa thể loại ====================================
     self.alertEditSuccess = function () {
         $(".alert-message").removeClass('hide');
         $(".alert-message").alert();
@@ -15,10 +21,10 @@
         $(".alert-message-delete").alert();
         window.setTimeout(function () { $(".alert-message-delete").addClass('hide').fadeOut(); }, 1000);
     }
-    //===============================================
+    //====================================================================================================
 
 
-    ///Phân trang
+    //================================= Phân trang thể loại ==============================================
     $scope.filteredItems = [];
     $scope.groupedItems = [];
     $scope.itemsPerPage = 5;
@@ -29,7 +35,7 @@
        
         TheLoaiFactory.getTheLoais()
         .success(function (data) {
-            console.log('All thể loại phân trang: ' + data);
+            //console.log('All thể loại phân trang: ' + data);
             $scope.pagedItems = data;
             $scope.search = '';
             $scope.currentPage = 1; //current page
@@ -46,23 +52,28 @@
     $scope.setPage = function (pageNo) {
         $scope.currentPage = pageNo;
     };
-    //=======================================
+    //====================================================================================================
 
+   
+
+    //====================================== Load Menu thể loại ==========================================
     $scope.LoadTheLoaiMenu = function () {
         TheLoaiFactory.getTheLoais()
         .success(function (data) {
-            $scope.TheLoais = data;
-            console.log('Load thể loại menu: ' + data);
-            $scope.$state = $state;
+            $scope.TheLoaiMenu = data;
+            //console.log('Load thể loại menu: ' + data);
+            //$scope.$state = $state;
           
-            $scope.selected = -1;
-            console.log('Reset selected: ' + $scope.selected)
+            //$scope.selected = -1;
+            //console.log('Reset selected: ' + $scope.selected)
         })
         .error(function (error) {
             //alert('Lỗi load thể loại....')
         });
     }
+    //===================================================================================================
 
+    //========================= Quản lý thêm, xóa, sửa thể loại =========================================
     $scope.themtheloai = function () {
         $scope.show = true;
         //$scope.TheLoai = null;
@@ -86,8 +97,8 @@
         TheLoaiFactory.getTheLoai(id)
         .success(function (data) {
             $scope.TheLoai = data;
-            console.log("Lấy thông tin thể loại để chỉnh sửa");
-            console.log(data);
+            //console.log("Lấy thông tin thể loại để chỉnh sửa");
+            //console.log(data);
         })
         .error(function () {
             //alert("Lỗi lấy thông tin thể loại");
@@ -95,10 +106,10 @@
     }
 
     $scope.InsUpdTheLoai = function (theloai) {
-        console.log(theloai);
-        console.log(theloai.TheLoaiId);
+        //console.log(theloai);
+        //console.log(theloai.TheLoaiId);
         if (theloai.TheLoaiId != 0) {
-            console.log('Cập nhật thể loại...');
+            //console.log('Cập nhật thể loại...');
             TheLoaiFactory.updateTheLoai(theloai)
             .success(function () {
                 $scope.show = !$scope.show;
@@ -113,7 +124,7 @@
 
         }
         else {
-            console.log("Thêm mới thể loại...");
+            //console.log("Thêm mới thể loại...");
             TheLoaiFactory.insertTheLoai(theloai)
             .success(function () {
                 $scope.show = !$scope.show;
@@ -141,17 +152,17 @@
             }
         });
     }
+    //==================================================================================
 
 
-    //$rootScope.idTheLoai = 2;
-    //console.log($rootScope.idTheLoai);
 
+    //=============================Menu tin tức=========================================
     $scope.selected = -1;
-
     $scope.select = function (index) {
         $scope.selected = index;
-        console.log('selected : ' + index);
+        //console.log('selected : ' + index);
     };
+    //==================================================================================
 
 }
 
