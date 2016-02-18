@@ -20,17 +20,7 @@ myApp.factory('membershipService', membershipService);
 
 myApp.directive('sideBar', sideBar);
 myApp.directive('sideBarAdmin', sideBarAdmin);
-
-//myApp.directive('sideBar', sideBar);
-
-//function sideBar() {
-//    return {
-//        restrict: 'E',
-//        replace: true,
-//        templateUrl: 'app/directives/sideBar.html'
-//    }
-//}
-
+ 
 myApp.filter('startFrom', function () {
     return function (input, start) {
         if (input) {
@@ -43,13 +33,7 @@ myApp.filter('startFrom', function () {
 
 
 var configFunction = function ($stateProvider, $httpProvider, $locationProvider, $urlRouterProvider) {
-
-    //$locationProvider.hashPrefix('!').html5Mode(true);
-    //$urlRouterProvider.otherwise('/home');
-
-    //$urlRouterProvider.when("", "/home");
-    //$urlRouterProvider.when("/", "/home");
-
+ 
     //// For any unmatched url, send to /route1
     $urlRouterProvider.otherwise("/home");
 

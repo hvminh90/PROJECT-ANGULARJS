@@ -131,7 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="files\" />
-    <Folder Include="Upload\" />
+    <Folder Include="Upload\TieuDe\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -139,6 +139,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\API\AccountController.cs" />
+    <Compile Include="Controllers\API\FileUploadController.cs" />
     <Compile Include="Controllers\API\NhanVienController.cs" />
     <Compile Include="Controllers\API\TheLoaiController.cs" />
     <Compile Include="Controllers\API\TinTucController.cs" />
@@ -899,6 +900,7 @@
     <Content Include="Scripts\ng-ckeditor.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Upload\no_image.jpg" />
     <Content Include="Views\_ViewStart.cshtml">
       <SubType>Code</SubType>
     </Content>

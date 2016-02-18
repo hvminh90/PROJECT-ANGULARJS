@@ -15,6 +15,24 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="inputFirstname" class="col-sm-2 control-label">Ảnh tiêu đề</label>
+                            <div class="col-sm-10">
+                                <!--<input type="file" class="form-control" id="fileHinh" ng-model="File" required  onchange="angular.element(this).scope().checkupload(this.files)">-->
+                                <input ng-model="photo" id="file_tieude_select" class="form-control"
+                                       onchange="angular.element(this).scope().file_changed(this)"
+                                       type="file" accept="image/*" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputFirstname" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+                                <img src="{{no_image}}"  height="180px" width="180px" id="file_tieude" />
+                                <!--<img src="{{no_image}}" id="blah" />-->
+                                <button type="button" class="btn btn-danger btn-sm" ng-click="XoaAnh()" ng-show="CheckFile" >Delete</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label for="inputLastname" class="col-sm-2 control-label">Nội dung</label>
                             <div class="col-sm-10">
                                 <!--<textarea class="form-control" rows="5" id="mota" ng-model="TinTuc.NoiDung" placeholder="Mô tả" tabindex="2"></textarea>-->
@@ -22,6 +40,7 @@
                                 <textarea ckeditor="editorOptions" ng-model="TinTuc.NoiDung"></textarea>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <label for="inputLastname" class="col-sm-2 control-label">Thể loại</label>
                             <div class="col-sm-10">
@@ -52,7 +71,7 @@
                         </div>
                     </div>
 
-                    
+
 
                 </form> <!-- END THE FORM -->
             </div>
