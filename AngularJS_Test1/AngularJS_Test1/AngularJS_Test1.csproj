@@ -223,6 +223,7 @@
     <Content Include="app\directives\sideBar.html" />
     <Content Include="app\directives\sideBarAdmin.directive.js" />
     <Content Include="app\directives\sideBarAdmin.html" />
+    <Content Include="app\factories\FileUploadService.js" />
     <Content Include="app\factories\Interceptor.js" />
     <Content Include="app\factories\membershipService.js" />
     <Content Include="app\factories\TheLoaiFactory.js" />

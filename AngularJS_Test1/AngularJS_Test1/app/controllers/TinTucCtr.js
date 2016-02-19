@@ -1,4 +1,4 @@
-﻿var TinTucCtr = function ($scope, TinTucFactory, TheLoaiFactory, $stateParams, $sce, $rootScope, $http) {
+﻿var TinTucCtr = function ($scope, TinTucFactory, TheLoaiFactory, $stateParams, $sce, $rootScope, $http, FileUploadService) {
 
     console.log('Load tin tức controller...')
 
@@ -130,11 +130,15 @@
         $scope.photo = null;
     }
 
+    //Upload file
     $scope.no_image = null;
     $scope.fileUpload = null;
+    $scope.SelectedFileForUpload = null;
+    $scope.Message = '';
 
     $scope.CheckFile = false;
     $scope.file_changed = function (file) {
+       
         $scope.$apply(function (scope) {
             $scope.CheckFile = true;
             var photofile = file.files[0];
@@ -149,9 +153,23 @@
 
             reader.readAsDataURL(photofile);
             $scope.fileUpload = photofile;
+            $scope.SelectedFileForUpload = photofile;
         });
 
-        
+
+    };
+
+    function SaveFile() {
+        $scope.Message = "";
+        console.log('Save file ....');
+        console.log($scope.SelectedFileForUpload);
+        FileUploadService.UploadFile($scope.SelectedFileForUpload, 'abc').then(function (d) {
+            //alert('123');
+            
+        }, function (e) {
+            alert('lỗi');
+        });
+
     };
 
     $scope.XoaAnh = function () {
@@ -165,6 +183,8 @@
         $scope.CheckFile = false;
         $scope.fileUpload = null;
     }
+
+    //end upload file
 
     $scope.cancelSave = function () {
         $scope.showThemTinTuc = !$scope.showThemTinTuc;
@@ -180,90 +200,13 @@
         $scope.CheckFile = false;
         console.log(tintuc);
     }
+
+
     $scope.InsUpdTinTuc = function (tintuc) {
         if (tintuc.TinTucId != 0 && tintuc.TinTucId != '') {
             console.log(tintuc.NoiDung);
 
-            var data = new FormData();
-
-            for (var i in $scope.fileUpload) {
-                data.append("FileUpload", $scope.fileUpload[i]);
-            }
-
-            //var request = {
-            //    method: 'POST',
-            //    url: '/api/fileupload/',
-            //    data: data,
-            //    headers: {
-            //        'Content-Type': undefined
-            //    }
-            //};
-
-            var request = {
-                type: "POST",
-                url: '/api/fileupload',
-                data: data,
-                dataType: 'json',
-                contentType: false,
-                processData: false,
-            };
-
-            //// SEND THE FILES.
-            $http(request)
-                .success(function (d) {
-                    alert(d);
-                })
-                .error(function () {
-                });
-
-            //$scope.model = {
-            //    name: "",
-            //    comments: ""
-            //};
-
-
-            //$http({
-            //    method: 'POST',
-            //    url: "/api/fileupload",
-            //    //IMPORTANT!!! You might think this should be set to 'multipart/form-data' 
-            //    // but this is not true because when we are sending up files the request 
-            //    // needs to include a 'boundary' parameter which identifies the boundary 
-            //    // name between parts in this multi-part request and setting the Content-type 
-            //    // manually will not set this boundary parameter. For whatever reason, 
-            //    // setting the Content-type to 'false' will force the request to automatically
-            //    // populate the headers properly including the boundary parameter.
-            //    headers: { 'Content-Type': undefined },
-            //    //This method will allow us to change how the data is sent up to the server
-            //    // for which we'll need to encapsulate the model data in 'FormData'
-            //    transformRequest: function (data) {
-            //        var formData = new FormData();
-            //        //need to convert our json object to a string version of json otherwise
-            //        // the browser will do a 'toString()' on the object which will result 
-            //        // in the value '[Object object]' on the server.
-            //        //formData.append("model", angular.toJson(data.model));
-            //        //now add all of the assigned files
-            //        for (var i = 0; i < data.files; i++) {
-            //            //add each file to the form data and iteratively name them
-            //            formData.append("file" + i, data.files[i]);
-            //        }
- 
-            //        return formData;
-            //    },
-            //    //Create an object that contains the model and files which will be transformed
-            //    // in the above transformRequest method
-            //    data: { model: $scope.model, files: $scope.fileUpload }
-            //}).
-            //success(function (data, status, headers, config) {
-            //    //alert("success!");
-            //}).
-            //error(function (data, status, headers, config) {
-            //   // alert("failed!");
-            //});
-
-
-
-
-            console.log(data);
+            SaveFile();
 
             //console.log('Cập nhật tin tức.....');
             TinTucFactory.updateTinTuc(tintuc)
@@ -335,4 +278,4 @@
     //=============================================================================================================================
 }
 
-TinTucCtr.$inject = ['$scope', 'TinTucFactory', 'TheLoaiFactory', '$stateParams', '$sce', '$rootScope', '$http']
+TinTucCtr.$inject = ['$scope', 'TinTucFactory', 'TheLoaiFactory', '$stateParams', '$sce', '$rootScope', '$http', 'FileUploadService']

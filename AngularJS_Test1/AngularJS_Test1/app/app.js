@@ -17,6 +17,8 @@ myApp.factory('Interceptor', Interceptor);
 myApp.factory('TheLoaiFactory', TheLoaiFactory);
 myApp.factory('TinTucFactory', TinTucFactory);
 myApp.factory('membershipService', membershipService);
+myApp.factory('FileUploadService', FileUploadService);
+
 
 myApp.directive('sideBar', sideBar);
 myApp.directive('sideBarAdmin', sideBarAdmin);
