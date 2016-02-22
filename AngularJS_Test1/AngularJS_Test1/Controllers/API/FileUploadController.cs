@@ -27,7 +27,7 @@ namespace AngularJS_Test1.Controllers.API
 
                 try
                 {
-                    file.SaveAs(Path.Combine(HttpContext.Current.Server.MapPath("~/Upload"), fileName));
+                    file.SaveAs(Path.Combine(HttpContext.Current.Server.MapPath("~/Upload/TieuDe"), fileName));
                     Message = "Succsess";
                 }
                 catch (Exception)
